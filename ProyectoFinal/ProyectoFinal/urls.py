@@ -1,11 +1,15 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import InicioVista, AcercaDeMiVista
+from .views import HomeVista, AboutVista
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', InicioVista.as_view(), name='inicio'),
-    path('acerca-de-mi/', AcercaDeMiVista.as_view(), name='acerca_de_mi'),
+    path('', HomeVista.as_view(), name='home'),
+    path('about/', AboutVista.as_view(), name='about'),
     path('paginas/', include('paginas.urls')),
     path('cuentas/', include('cuentas.urls')),
-]
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

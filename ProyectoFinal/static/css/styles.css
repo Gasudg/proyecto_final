@@ -1,0 +1,47 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    flex: 1;
+}
+
+footer {
+    background-color: #f1f1f1; /* Color de fondo del footer */
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+main {
+    flex: 1;
+}
+
+.btn-primary {
+    background-color: greenyellow;
+    color: black;
+    border-color: yellowgreen;
+}
+
+.btn-primary:hover {
+    background-color: black;
+    color: greenyellow;
+    border-color: yellowgreen;
+}
+
+.navbar.bg-light {
+    background-color: greenyellow !important;
+}
+
+.bg-dark {
+    background-color: #9933cc !important;
+}
+
