@@ -1,14 +1,21 @@
-from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
+from django.views import generic
+from .forms import FormularioRegistroUsuario
+from django.contrib.auth.views import LogoutView
+from django.shortcuts import redirect
+from django.contrib.auth import logout
 
-def registro(request):
-    if request.method == 'POST':
-        formulario = UserCreationForm(request.POST)
-        if formulario.is_valid():
-            usuario = formulario.save()
-            login(request, usuario)
-            return redirect('lista-paginas')
-    else:
-        formulario = UserCreationForm()
-    return render(request, 'cuentas/registro.html', {'formulario': formulario})
+
+class VistaRegistro(generic.CreateView):
+    form_class = FormularioRegistroUsuario
+    template_name = 'registro/registro.html'
+    success_url = reverse_lazy('login')
+
+
+class LogoutVista(LogoutView):
+    next_page = reverse_lazy('login')
+
+
+def cerrar_sesion(request):
+    logout(request)
+    return redirect('/')

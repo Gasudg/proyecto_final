@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Lista de Páginas{% endblock %}
+
+{% block contenido %}
+<h1>Lista de Páginas</h1>
+<ul>
+    {% for pagina in object_list %}
+        <li><a href="{% url 'pagina_detalle' pagina.pk %}">{{ pagina.titulo }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

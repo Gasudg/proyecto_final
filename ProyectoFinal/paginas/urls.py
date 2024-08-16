@@ -1,10 +1,10 @@
 from django.urls import path
-from .views import PaginaListaVista, PaginaDetalleVista, PaginaCrearVista, PaginaActualizarVista, PaginaEliminarVista
+from .views import PaginaListaVista, PaginaDetalleVista, PaginaCrearVista, PaginaEditarVista, PaginaEliminarVista
 
 urlpatterns = [
-    path('', PaginaListaVista.as_view(), name='lista-paginas'),
-    path('<int:pk>/', PaginaDetalleVista.as_view(), name='detalle-pagina'),
-    path('crear/', PaginaCrearVista.as_view(), name='crear-pagina'),
-    path('<int:pk>/editar/', PaginaActualizarVista.as_view(), name='editar-pagina'),
-    path('<int:pk>/eliminar/', PaginaEliminarVista.as_view(), name='eliminar-pagina'),
+    path('', PaginaListaVista.as_view(), name='pagina_lista'),
+    path('<int:pk>/', PaginaDetalleVista.as_view(), name='pagina_detalle'),
+    path('crear/', PaginaCrearVista.as_view(), name='pagina_crear'),
+    path('editar/<int:pk>/', PaginaEditarVista.as_view(), name='pagina_editar'),
+    path('eliminar/<int:pk>/', PaginaEliminarVista.as_view(), name='pagina_eliminar'),
 ]
