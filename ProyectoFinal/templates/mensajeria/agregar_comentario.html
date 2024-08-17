@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+    <h2>Agregar Comentario a {{ pagina.titulo }}</h2>
+    <form method="post" action="{% url 'agregar_comentario' pagina.id %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar Comentario</button>
+    </form>
+{% endblock %}

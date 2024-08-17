@@ -11,5 +11,6 @@ urlpatterns = [
     path('about/', AboutVista.as_view(), name='about'),
     path('paginas/', include('paginas.urls')),
     path('cuentas/', include('cuentas.urls')),
+    path('mensajeria/', include('mensajeria.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

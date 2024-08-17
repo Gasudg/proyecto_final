@@ -9,4 +9,23 @@
 <p>{{ pagina.cuerpo }}</p>
 <p><strong>Autor:</strong> {{ pagina.autor }}</p>
 <p><strong>Fecha:</strong> {{ pagina.fecha_publicacion }}</p>
+
+<h3>Comentarios:</h3>
+{% for comentario in pagina.comentarios.all %}
+    <div>
+        <p><strong>{{ comentario.autor.username }}:</strong> {{ comentario.texto }}</p>
+        <p><small>{{ comentario.creado }}</small></p>
+    </div>
+{% empty %}
+    <p>No hay comentarios aún.</p>
+{% endfor %}
+
+<h3>Agregar Comentario:</h3>
+<form method="post" action="{% url 'agregar_comentario' pagina.id %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Enviar Comentario</button>
+</form>
+
+
 {% endblock %}
