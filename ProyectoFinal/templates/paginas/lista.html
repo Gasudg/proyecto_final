@@ -11,9 +11,9 @@
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <div class="media">
                         {% if pagina.imagen %}
-                            <img src="{{ pagina.imagen.url }}" class="mr-3" alt="{{ pagina.titulo }}" style="width: 100px; height: auto;">
+                            <img src="{{ pagina.imagen.url }}" class="mr-3" alt="{{ pagina.titulo }}" style="width: 100px; height: 100px;">
                         {% else %}
-                            <img src="{% static 'default.jpg' %}" class="mr-3" alt="{{ pagina.titulo }}" style="width: 100px; height: auto;">
+                            <img src="{% static 'default.jpg' %}" class="mr-3" alt="{{ pagina.titulo }}" style="width: 100px; height: 100px;">
                         {% endif %}
                         <div class="media-body">
                             <h5 class="mt-0"><a href="{% url 'pagina_detalle' pagina.id %}">{{ pagina.titulo }}</a></h5>

@@ -19,13 +19,14 @@
 {% empty %}
     <p>No hay comentarios aún.</p>
 {% endfor %}
-
-<h3>Agregar Comentario:</h3>
-<form method="post" action="{% url 'agregar_comentario' pagina.id %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Enviar Comentario</button>
-</form>
+{% if user.is_authenticated %}
+    <h3>Agregar Comentario:</h3>
+    <form method="post" action="{% url 'agregar_comentario' pagina.id %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar Comentario</button>
+    </form>
+{% endif %}
 
 
 {% endblock %}
