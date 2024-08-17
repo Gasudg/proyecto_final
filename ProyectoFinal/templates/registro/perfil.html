@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Perfil de {{ perfil.usuario.username }}{% endblock %}
+
+{% block contenido %}
+    <h1>Perfil de {{ perfil.usuario.username }}</h1>
+
+    <div class="perfil-container">
+        <div class="perfil-avatar">
+            {% if perfil.avatar %}
+                <img src="{{ perfil.avatar.url }}" alt="Avatar de {{ perfil.usuario.username }}">
+            {% else %}
+                <p>No tienes un avatar</p>
+            {% endif %}
+        </div>
+
+        <div class="perfil-info">
+            <p><strong>Nombre:</strong> {{ perfil.usuario.first_name }}</p>
+            <p><strong>Apellido:</strong> {{ perfil.usuario.last_name }}</p>
+            <p><strong>Fecha de nacimiento:</strong> {{ perfil.fecha_nacimiento }}</p>
+            <p><strong>Email:</strong> {{ perfil.usuario.email }}</p>
+            <p><strong>Biografía:</strong> {{ perfil.biografia }}</p>
+        </div>
+    </div>
+
+    <a href="{% url 'editar_perfil' %}" class="btn btn-primary">Editar Perfil</a>
+    <a href="{% url 'cambiar_password' %}" class="btn btn-primary">Cambiar Contraseña</a>
+
+{% endblock %}

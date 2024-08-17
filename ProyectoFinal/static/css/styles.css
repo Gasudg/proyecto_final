@@ -25,16 +25,49 @@ main {
     flex: 1;
 }
 
+a {
+    color: #fff;
+}
+
+a:hover {
+    color: grey;
+    text-decoration: none;
+}
+
 .btn-primary {
-    background-color: greenyellow;
-    color: black;
-    border-color: yellowgreen;
+    background-color: #3700B3;
+    color: #fff;
+    border-color: #3700B3;
 }
 
 .btn-primary:hover {
-    background-color: black;
-    color: greenyellow;
-    border-color: yellowgreen;
+    color: #fff;
+    background-color: transparent;
+    border-color: #3700B3;
+}
+
+.btn-danger {
+    color: #CF6679;
+    background-color: transparent;
+    border-color: #CF6679;
+}
+
+.btn-danger:hover {
+    color: #fff;
+    background-color: #CF6679;
+    border-color: #CF6679;
+}
+
+.btn-warning {
+    color: #BB86FC;
+    background-color: transparent;
+    border-color: #BB86FC;
+}
+
+.btn-warning:hover {
+    color: #000;
+    background-color: #BB86FC;
+    border-color: #BB86FC;
 }
 
 .navbar.bg-light {
@@ -44,4 +77,25 @@ main {
 .bg-dark {
     background-color: #9933cc !important;
 }
+
+.perfil-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+.perfil-avatar {
+    flex: 0 0 auto;
+    margin-right: 20px; 
+}
+
+.perfil-avatar img {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.perfil-info {
+    flex: 1;
+}
+
 
